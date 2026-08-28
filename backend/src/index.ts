@@ -5,7 +5,9 @@ import { env } from "./config/env.js";
 import { connectDb } from "./db/connect.js";
 import { errorHandler, pagesRouter } from "./routes/index.js";
 import { ensureDemoPage } from "./services/layout.service.js";
+import { sendSuccess } from "./utils/api-response.js";
 import { startKeepalivePinger } from "./utils/keepalive.js";
+import { getUptime } from "./utils/uptime.js";
 
 const app = express();
 
@@ -22,6 +24,14 @@ app.use(
   }),
 );
 app.use(express.json({ limit: "2mb" }));
+
+app.get("/", (_req, res) => {
+  sendSuccess(res, {
+    health: "/api/health",
+    keepalive: "/api/keepalive",
+    uptime: getUptime(),
+  });
+});
 
 app.get("/api/health", (_req, res) => {
   res.json({ success: true, message: "OK", data: { status: "healthy" } });
