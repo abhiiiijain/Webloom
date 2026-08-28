@@ -1,0 +1,32 @@
+{
+  "name": "webloom-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.5",
+    "@mantine/hooks": "^7.17.5",
+    "@tabler/icons-react": "^3.31.0",
+    "clsx": "^2.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "sass": "^1.86.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  }
+}

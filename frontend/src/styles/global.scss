@@ -1,0 +1,44 @@
+:root {
+  --wb-brand: #ff6b00;
+  --wb-brand-soft: #fff4e6;
+  --wb-brand-hover: #e66000;
+  --wb-bg-app: #eef1f6;
+  --wb-bg-panel: #ffffff;
+  --wb-bg-header: #0f172a;
+  --wb-bg-canvas: #e2e8f0;
+  --wb-border: #e2e8f0;
+  --wb-text: #0f172a;
+  --wb-text-muted: #64748b;
+  --wb-text-inverse: #f8fafc;
+  --wb-shadow-panel: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.04);
+  --wb-shadow-canvas: 0 8px 32px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06);
+  --wb-radius-md: 8px;
+  --wb-left-width: 280px;
+  --wb-left-collapsed-width: 72px;
+  --wb-right-width: 300px;
+  --wb-header-height: 56px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: var(--wb-bg-app);
+  color: var(--wb-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(255, 107, 0, 0.2);
+}
