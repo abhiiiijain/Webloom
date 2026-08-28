@@ -99,6 +99,7 @@ Run these from `frontend/` or `backend/`, not the repo root.
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
 | GET | `/api/health` | Health check |
+| GET | `/api/keepalive` | Keepalive ping (every 45s) |
 | GET | `/api/pages` | List pages |
 | GET | `/api/pages/:pageId/layout/draft` | Load draft layout |
 | GET | `/api/pages/:pageId/layout/published` | Load published layout |
@@ -157,8 +158,9 @@ Split hosting: **Vercel** (frontend) + **Render** (API) + **MongoDB Atlas**.
 
 1. **Atlas** — create a cluster, database user, and connection string. Network access: allow Render (or `0.0.0.0/0` for a demo).
 2. **Render** — Web Service, root directory `backend`.
-   - Build: `npm install --include=dev && npm run build`
-   - Start: `npm start`
+   - Node: **20** (not 26)
+   - Build: `npm install && npm run build`
+   - Start: `npm start` (not `yarn start`)
    - Health: `/api/health`
    - Env: `NODE_ENV=production`, `MONGODB_URI`, `FRONTEND_ORIGIN=https://webloom.abhiiiijain.com,https://www.webloom.abhiiiijain.com`
 3. **Vercel** — Project, root directory `frontend`.

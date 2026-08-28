@@ -41,10 +41,11 @@ NODE_ENV=production npm start
 ## Render
 
 1. New Web Service → this repo → **Root Directory** `backend`
-2. Build: `npm install --include=dev && npm run build`
-3. Start: `npm start`
-4. Health check: `/api/health`
-5. Environment:
+2. Node version: **20** (Settings → Node, or `engines` in package.json)
+3. Build Command: `npm install && npm run build`
+4. Start Command: `npm start` — do not use `yarn start`
+5. Health check: `/api/health`
+6. Environment:
 
 ```env
 NODE_ENV=production

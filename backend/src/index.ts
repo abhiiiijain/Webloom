@@ -5,6 +5,7 @@ import { env } from "./config/env.js";
 import { connectDb } from "./db/connect.js";
 import { errorHandler, pagesRouter } from "./routes/index.js";
 import { ensureDemoPage } from "./services/layout.service.js";
+import { startKeepalivePinger } from "./utils/keepalive.js";
 
 const app = express();
 
@@ -26,6 +27,14 @@ app.get("/api/health", (_req, res) => {
   res.json({ success: true, message: "OK", data: { status: "healthy" } });
 });
 
+app.get("/api/keepalive", (_req, res) => {
+  res.json({
+    success: true,
+    message: "OK",
+    data: { status: "alive", at: new Date().toISOString() },
+  });
+});
+
 app.use("/api/pages", pagesRouter);
 app.use(errorHandler);
 
@@ -35,6 +44,7 @@ const start = async () => {
 
   app.listen(env.port, "0.0.0.0", () => {
     console.log(`API listening on port ${env.port}`);
+    startKeepalivePinger();
   });
 };
 
